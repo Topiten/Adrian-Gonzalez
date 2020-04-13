@@ -6,7 +6,7 @@ public class Tank : MoveVehicle
 {
     public int bullets;
     public GameObject prefabBullets;
-    public float distanceBullets;
+    public Transform instantiateBullets;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,13 +16,14 @@ public class Tank : MoveVehicle
     // Update is called once per frame
     void Update()
     {
-        if (bullets >= 0 && Input.GetKey (KeyCode.F))
+        if (bullets > 0 && Input.GetKeyDown (KeyCode.F))
         {
             Shoot();
+            bullets = bullets - 1;
         }
     }
     void Shoot()
     {
-        Instantiate(prefabBullets,new Vector3(transform.position.x, transform.position.y, transform.position.z + distanceBullets), transform.rotation);
+        Instantiate(prefabBullets, instantiateBullets.position, instantiateBullets.rotation);
     }
 }
