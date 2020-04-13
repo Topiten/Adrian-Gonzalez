@@ -7,6 +7,7 @@ public class Tank : MoveVehicle
     public int bullets;
     public GameObject prefabBullets;
     public Transform instantiateBullets;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,23 @@ public class Tank : MoveVehicle
             Shoot();
             bullets = bullets - 1;
         }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            sonido.SoundMoveTank();
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            sonido.SoundMoveTank();
+        }
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            sonido.fuenteAudio.Stop();
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            sonido.fuenteAudio.Stop();
+        }
+
     }
     void Shoot()
     {

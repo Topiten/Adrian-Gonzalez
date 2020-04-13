@@ -7,6 +7,7 @@ public class MoveVehicle : MonoBehaviour
     public float speed;
     public float speedReverse;
     public float speedRotate;
+    public Sounds sonido;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,8 @@ public class MoveVehicle : MonoBehaviour
         {
             transform.RotateAround(transform.position, Vector3.up, speedRotate * Time.deltaTime);
         }
+        
+
 
     }
 }
